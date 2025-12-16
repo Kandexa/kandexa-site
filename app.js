@@ -1,56 +1,44 @@
-// Kandexa Final - active nav + mobile menu
-(function(){
-  const file = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  const setActive = (scopeSelector) => {
-    document.querySelectorAll(scopeSelector + " a").forEach(a=>{
-      const href = (a.getAttribute("href") || "").toLowerCase();
-      if(href === file) a.classList.add("active");
-    });
-  };
-  setActive(".nav");
-  setActive(".nav-mobile");
+// ===== Mobile Menu Toggle =====
+(function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileNav = document.getElementById("mobileNav");
 
-  const btn = document.getElementById("menuBtn");
-  const mobile = document.getElementById("mobileNav");
-  if(btn && mobile){
-    btn.addEventListener("click", ()=> mobile.classList.toggle("open"));
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener("click", () => {
+      mobileNav.classList.toggle("open");
+    });
   }
 })();
 
-const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
+// ===== Formspree: sayfada "Mesaj iletildi" göster, başka sayfaya gitme =====
+(function () {
+  const form = document.getElementById("contactForm");
+  if (!form) return;
 
-if (form) {
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); // SAYFA YENİLENMEZ
+    e.preventDefault();
 
-    const formData = new FormData(form);
+    const okBox = document.getElementById("formSuccess");
+    const errBox = document.getElementById("formError");
+    if (okBox) okBox.style.display = "none";
+    if (errBox) errBox.style.display = "none";
 
     try {
-      const response = await fetch(form.action, {
+      const data = new FormData(form);
+      const res = await fetch(form.action, {
         method: "POST",
-        body: formData,
-        headers: {
-          "Accept": "application/json"
-        }
+        body: data,
+        headers: { "Accept": "application/json" }
       });
 
-      if (response.ok) {
-        status.style.display = "block";
-        status.style.color = "#16a34a";
-        status.textContent = "Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağız.";
-
+      if (res.ok) {
         form.reset();
+        if (okBox) okBox.style.display = "block";
       } else {
-        status.style.display = "block";
-        status.style.color = "#dc2626";
-        status.textContent = "Bir hata oluştu. Lütfen tekrar deneyin.";
+        if (errBox) errBox.style.display = "block";
       }
-    } catch (error) {
-      status.style.display = "block";
-      status.style.color = "#dc2626";
-      status.textContent = "Bağlantı hatası. Lütfen daha sonra tekrar deneyin.";
+    } catch (err) {
+      if (errBox) errBox.style.display = "block";
     }
   });
-}
-
+})();

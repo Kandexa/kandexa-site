@@ -8,127 +8,189 @@
   <title>Kandexa — İletişim</title>
   <meta name="description" content="Kandexa iletişim." />
 </head>
+
 <body>
-  <div class="navbar">
-  <div class="nav-inner">
-    <a class="brand" href="index.html" aria-label="Kandexa">
-      <img class="logo" src="assets/logo.jpg" alt="Kandexa logo">
-      <div>
-        <div class="name">Kandexa</div>
-        <div class="tag" data-i18n="brand_tag">Yazılım • Otomasyon</div>
-      </div>
-    </a>
+  <div class="page">
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="index.html" data-i18n="nav_home">Anasayfa</a>
-      <a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
-      <a href="ekip.html" data-i18n="nav_team">Ekip</a>
-      <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
-      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-      <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
-    </nav>
+    <!-- HEADER / NAV -->
+    <header class="navbar">
+      <div class="nav-inner">
+        <a class="brand" href="index.html" aria-label="Kandexa">
+          <img class="logo" src="assets/logo.jpg" alt="Kandexa logo">
+          <div>
+            <div class="name">Kandexa</div>
+            <div class="tag" data-i18n="brand_tag">Yazılım • Otomasyon</div>
+          </div>
+        </a>
 
-    <div class="actions-right">
-      <button id="menuBtn" class="menu-btn" type="button">Menu</button>
-      <button id="langBtn" class="lang-btn" type="button" onclick="toggleLang()" title="TR/EN">
-        <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm7.93 9h-3.17a15.7 15.7 0 0 0-1.02-5.07A8.02 8.02 0 0 1 19.93 11zM12 4c.93 0 2.23 1.62 3.02 5H8.98C9.77 5.62 11.07 4 12 4zM4.07 13h3.17c.2 1.83.63 3.56 1.25 5.07A8.02 8.02 0 0 1 4.07 13zm3.17-2H4.07a8.02 8.02 0 0 1 4.42-5.07A15.7 15.7 0 0 0 7.24 11zM12 20c-.93 0-2.23-1.62-3.02-5h6.04C14.23 18.38 12.93 20 12 20zm4.76-7H7.24c-.17-1.6-.17-3.4 0-5h9.52c.17 1.6.17 3.4 0 5zm-1.25 5.07c.62-1.51 1.05-3.24 1.25-5.07h3.17a8.02 8.02 0 0 1-4.42 5.07z"/></svg>
-        <span class="lang-pill">TR</span>
-      </button>
-    </div>
-  </div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="index.html" data-i18n="nav_home">Anasayfa</a>
+          <a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
+          <a href="ekip.html" data-i18n="nav_team">Ekip</a>
+          <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+          <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+          <a class="active" href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+        </nav>
 
-  <div id="mobileNav" class="nav-mobile">
-    <a href="index.html" data-i18n="nav_home">Anasayfa</a>
-    <a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
-    <a href="ekip.html" data-i18n="nav_team">Ekip</a>
-    <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
-    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-    <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
-  </div>
-</div>
-  <main class="container">
-    <div class="page-title">
-      <h1 data-i18n="contact_title">İletişim</h1>
-    </div>
-
-    <section class="contact-grid">
-      <div class="card contact-card">
-        <h3 style="margin:0 0 10px" data-i18n="direct_h">Doğrudan</h3>
-        <p class="small" style="margin:0 0 12px" data-i18n="direct_p">Mail ile hızlı dönüş alırsın.</p>
-        <div class="small" style="display:grid; gap:8px">
-          <a href="mailto:mckandemir20@gmail.com">mckandemir20@gmail.com</a>
-          <a href="mailto:kiymazilgin@gmail.com">kiymazilgin@gmail.com</a>
-          <span>@kandexa.1</span>
-          <span>Türkiye, Denizli</span>
+        <div class="actions-right">
+          <button id="menuBtn" class="menu-btn" type="button">Menu</button>
+          <button id="langBtn" class="lang-btn" type="button" onclick="toggleLang()" title="TR/EN">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2zm7.93 9h-3.17a15.7 15.7 0 0 0-1.02-5.07A8.02 8.02 0 0 1 19.93 11zM12 4c.93 0 2.23 1.62 3.02 5H8.98C9.77 5.62 11.07 4 12 4zM4.07 13h3.17c.2 1.83.63 3.56 1.25 5.07A8.02 8.02 0 0 1 4.07 13zm3.17-2H4.07a8.02 8.02 0 0 1 4.42-5.07A15.7 15.7 0 0 0 7.24 11zM12 20c-.93 0-2.23-1.62-3.02-5h6.04C14.23 18.38 12.93 20 12 20zm4.76-7H7.24c-.17-1.6-.17-3.4 0-5h9.52c.17 1.6.17 3.4 0 5zm-1.25 5.07c.62-1.51 1.05-3.24 1.25-5.07h3.17a8.02 8.02 0 0 1-4.42 5.07z"/>
+            </svg>
+            <span class="lang-pill">TR</span>
+          </button>
         </div>
       </div>
 
-      <div class="card contact-card">
-        <h3 style="margin:0 0 10px" data-i18n="form_h">Form</h3>
-
-<form id="contactForm" action="https://formspree.io/f/xgvgjpgz" method="POST">
-  <div class="field">
-    <label for="to" data-i18n="to_label">Kime?</label>
-    <select id="to" name="to">
-      <option value="Mehmet Celil Kandemir">Mehmet Celil</option>
-      <option value="Ilgın Kıymaz">Ilgın</option>
-    </select>
-  </div>
-
-  <div class="field">
-    <label for="name" data-i18n="name_label">Ad Soyad</label>
-    <input id="name" name="name" placeholder="Ad Soyad" required />
-  </div>
-
-  <div class="field">
-    <label for="email" data-i18n="email_label">E-posta</label>
-    <input id="email" name="email" type="email" placeholder="ornek@mail.com" required />
-  </div>
-
-  <div class="field">
-    <label for="company" data-i18n="company_label">Firma (opsiyonel)</label>
-    <input id="company" name="company" placeholder="Firma adı" />
-  </div>
-
-  <div class="field">
-    <label for="subject" data-i18n="subject_label">Konu</label>
-    <input id="subject" name="subject" placeholder="Örn: otomasyon teklifi / panel" />
-  </div>
-
-  <div class="field">
-    <label for="message" data-i18n="message_label">Mesajınız</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Kısa ve net yazın..."
-      required
-    ></textarea>
-    <p id="formStatus" class="small" style="margin-top:10px; display:none;"></p>
-  </div>
-
-  <!-- Formspree ayarları -->
-  <input type="hidden" name="_subject" value="Kandexa | İletişim Formu">
-  <input type="hidden" name="_template" value="table">
-
-  <button class="btn primary" type="submit" style="width:100%" data-i18n="send_btn">
-    Gönder
-  </button>
-</form>
-
+      <div id="mobileNav" class="nav-mobile">
+        <a href="index.html" data-i18n="nav_home">Anasayfa</a>
+        <a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
+        <a href="ekip.html" data-i18n="nav_team">Ekip</a>
+        <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+        <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+        <a class="active" href="iletisim.html" data-i18n="nav_contact">İletişim</a>
       </div>
-    </section>
+    </header>
 
-    <div class="footer">
-  <div class="small">© <span id="y"></span> Kandexa. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></div>
-  <div class="socials" aria-label="Social links">
-    <a href="https://github.com/Kandexa" target="_blank" rel="noopener" title="GitHub"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.75 5.68.75 12.06c0 5.11 3.29 9.44 7.86 10.97.58.11.79-.26.79-.57v-2.02c-3.2.71-3.88-1.39-3.88-1.39-.52-1.35-1.28-1.71-1.28-1.71-1.04-.73.08-.72.08-.72 1.15.08 1.75 1.2 1.75 1.2 1.02 1.79 2.67 1.27 3.32.97.1-.75.4-1.27.72-1.56-2.55-.3-5.23-1.3-5.23-5.79 0-1.28.45-2.33 1.18-3.15-.12-.3-.52-1.53.11-3.2 0 0 .97-.31 3.18 1.2.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.51 3.17-1.2 3.17-1.2.64 1.67.24 2.9.12 3.2.74.82 1.18 1.87 1.18 3.15 0 4.5-2.69 5.49-5.25 5.79.41.37.78 1.09.78 2.2v3.26c0 .32.21.69.8.57 4.56-1.54 7.85-5.86 7.85-10.97C23.25 5.68 18.27.5 12 .5z"/></svg></a>
-    <a href="https://www.linkedin.com/in/mehmet-celil-kandemir-82678a397/?isSelfProfile=true" target="_blank" rel="noopener" title="LinkedIn"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.65-1.86 3.39-1.86 3.62 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
-    <a href="mailto:mckandemir20@gmail.com" title="Email"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+    <!-- MAIN -->
+    <main class="container">
+      <div class="page-title">
+        <h1 data-i18n="contact_title">İletişim</h1>
+        <p class="small" data-i18n="contact_subtitle">Teklif, iş birliği veya soru için yazın. Mesajı aynı gün içinde görürüz.</p>
+      </div>
+
+      <section class="contact-grid">
+
+        <!-- SOL: Doğrudan -->
+        <div class="card contact-card">
+          <h3 data-i18n="direct_title">Doğrudan</h3>
+          <p class="small" data-i18n="direct_desc">Teklif, iş birliği veya soru için bize buradan ulaşabilirsin.</p>
+
+          <div class="contact-list">
+            <div class="citem">
+              <div class="cicon">✉️</div>
+              <div class="ctext">
+                <div class="clabel" data-i18n="direct_email_label">E-posta</div>
+                <a class="cvalue" href="mailto:mckandemir20@gmail.com">mckandemir20@gmail.com</a><br>
+                <a class="cvalue" href="mailto:kiymazilgin@gmail.com">kiymazilgin@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="citem">
+              <div class="cicon">📍</div>
+              <div class="ctext">
+                <div class="clabel" data-i18n="direct_location_label">Konum</div>
+                <div class="cvalue">Türkiye, Denizli</div>
+              </div>
+            </div>
+
+            <div class="citem">
+              <div class="cicon">⏱️</div>
+              <div class="ctext">
+                <div class="clabel" data-i18n="direct_response_label">Dönüş süresi</div>
+                <div class="cvalue" data-i18n="direct_response_value">Genelde aynı gün içinde dönüş yaparız.</div>
+              </div>
+            </div>
+
+            <div class="citem">
+              <div class="cicon">🧩</div>
+              <div class="ctext">
+                <div class="clabel" data-i18n="direct_work_label">Çalışma</div>
+                <div class="cvalue" data-i18n="direct_work_value">Web / Otomasyon / IoT odaklı projeler</div>
+              </div>
+            </div>
+
+            <div class="note-box">
+              <div class="note-title" data-i18n="direct_note_title">Not</div>
+              <div class="small" data-i18n="direct_note_text">Formdan gönderdiğin mesaj bize e-posta olarak iletilir.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SAĞ: Form (TEK FORM) -->
+        <div class="card contact-card">
+          <h3 data-i18n="form_title">Form</h3>
+
+          <form id="contactForm" action="https://formspree.io/f/xgvgjpgz" method="POST">
+            <div class="field">
+              <label for="to" data-i18n="to_label">Kime?</label>
+              <select id="to" name="to" required>
+                <option value="Mehmet Celil Kandemir">Mehmet Celil</option>
+                <option value="Ilgın Kıymaz">Ilgın</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="name" data-i18n="name_label">Ad Soyad</label>
+              <input id="name" name="name" placeholder="Ad Soyad" required />
+            </div>
+
+            <div class="field">
+              <label for="email" data-i18n="email_label">E-posta</label>
+              <input id="email" name="email" type="email" placeholder="ornek@mail.com" required />
+            </div>
+
+            <div class="field">
+              <label for="company" data-i18n="company_label">Firma (opsiyonel)</label>
+              <input id="company" name="company" placeholder="Firma adı" />
+            </div>
+
+            <div class="field">
+              <label for="subject" data-i18n="subject_label">Konu</label>
+              <input id="subject" name="subject" placeholder="Örn: otomasyon teklifi / panel" required />
+            </div>
+
+            <div class="field">
+              <label for="message" data-i18n="message_label">Mesajınız</label>
+              <textarea id="message" name="message" placeholder="Kısa ve net yazın..." required></textarea>
+            </div>
+
+            <!-- Formspree ayarları -->
+            <input type="hidden" name="_subject" value="Kandexa | İletişim Formu">
+            <input type="hidden" name="_template" value="table">
+
+            <button class="btn primary" type="submit" style="width:100%" data-i18n="send_btn">Gönder</button>
+
+            <div id="formSuccess" class="form-alert success" style="display:none;">
+              Mesajın iletildi. En kısa sürede dönüş yapacağız.
+            </div>
+            <div id="formError" class="form-alert error" style="display:none;">
+              Mesaj gönderilemedi. Lütfen tekrar dene.
+            </div>
+          </form>
+        </div>
+
+      </section>
+    </main>
+
+    <!-- FOOTER (main DIŞINDA) -->
+    <footer class="footer">
+      <div class="small">© <span id="y"></span> Kandexa. <span data-i18n="footer_rights">Tüm hakları saklıdır.</span></div>
+      <div class="socials" aria-label="Social links">
+        <a href="https://github.com/Kandexa" target="_blank" rel="noopener" title="GitHub">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 .5C5.73.5.75 5.68.75 12.06c0 5.11 3.29 9.44 7.86 10.97.58.11.79-.26.79-.57v-2.02c-3.2.71-3.88-1.39-3.88-1.39-.52-1.35-1.28-1.71-1.28-1.71-1.04-.73.08-.72.08-.72 1.15.08 1.75 1.2 1.75 1.2 1.02 1.79 2.67 1.27 3.32.97.1-.75.4-1.27.72-1.56-2.55-.3-5.23-1.3-5.23-5.79 0-1.28.45-2.33 1.18-3.15-.12-.3-.52-1.53.11-3.2 0 0 .97-.31 3.18 1.2.92-.26 1.9-.39 2.88-.39.98 0 1.96.13 2.88.39 2.2-1.51 3.17-1.2 3.17-1.2.64 1.67.24 2.9.12 3.2.74.82 1.18 1.87 1.18 3.15 0 4.5-2.69 5.49-5.25 5.79.41.37.78 1.09.78 2.2v3.26c0 .32.21.69.8.57 4.56-1.54 7.85-5.86 7.85-10.97C23.25 5.68 18.27.5 12 .5z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/mehmet-celil-kandemir-82678a397/?isSelfProfile=true" target="_blank" rel="noopener" title="LinkedIn">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.65-1.86 3.39-1.86 3.62 0 4.28 2.38 4.28 5.47v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>
+          </svg>
+        </a>
+
+        <a href="mailto:mckandemir20@gmail.com" title="Email">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+        </a>
+      </div>
+    </footer>
+
   </div>
-</div>
-<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
-  </main>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   <script src="app.js"></script>
   <script src="i18n.js"></script>
 </body>
