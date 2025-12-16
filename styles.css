@@ -329,3 +329,85 @@ textarea{min-height:140px; resize:vertical}
   font-weight:900;
   font-size:12px;
 }
+/* ===== NAVBAR FINAL FIX (EKLE) ===== */
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+.nav-inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+.brand img{
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+.brand-text strong{ font-size: 18px; }
+.brand-text span{
+  font-size: 12px;
+  color: #64748b;
+}
+.nav{
+  display: flex;
+  gap: 18px;
+  white-space: nowrap;
+}
+.nav a{ font-weight: 500; color:#1e293b; }
+.nav a.active{ font-weight: 700; }
+.lang-btn{
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: #fff;
+  cursor: pointer;
+}
+/* Mobilde menüyü gizle (alt alta yazı olmasın) */
+@media (max-width: 900px){
+  .nav{ display:none !important; }
+}
+/* ===== FIX: Mobile menü masaüstünde görünmesin ===== */
+.nav-mobile{
+  display: none !important;   /* default kapalı */
+}
+
+/* ===== FIX: Mobilde masaüstü menüyü gizle, buton + mobile menüyü aç ===== */
+@media (max-width: 920px){
+  .nav{ display: none !important; }
+  .menu-btn{ display: inline-flex !important; }
+  .nav-mobile.open{ display: block !important; }
+}
+.menu-btn{
+  display: none; /* desktopta kapalı */
+  border:1px solid rgba(15,23,42,.10);
+  background:#fff;
+  border-radius:12px;
+  padding:10px 12px;
+  font-weight:900;
+}
+/* Sayfa yüksekliği ekranı doldursun */
+html, body { height: 100%; margin: 0; }
+.page { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+
+
+/* Hero alanı boş kalmasın */
+.hero {
+  min-height: calc(100vh - 84px); /* 84px = header yüksekliği yaklaşık */
+  display: grid;
+  align-items: center;
+}

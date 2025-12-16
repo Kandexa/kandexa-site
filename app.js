@@ -17,30 +17,40 @@
   }
 })();
 
-function sendMail(){
-  const to = document.getElementById("to").value;
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const subject = document.getElementById("subject").value.trim() || "Kandexa | Görüşme Talebi";
-  const message = document.getElementById("message").value.trim();
+const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
 
-  if(!message){
-    alert(window.__i18n_lang === "en" ? "Message cannot be empty." : "Mesaj boş olamaz.");
-    return false;
-  }
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault(); // SAYFA YENİLENMEZ
 
-  const body =
-`Ad Soyad: ${name || "-"}
-E-posta: ${email || "-"}
-Firma: ${company || "-"}
+    const formData = new FormData(form);
 
-Mesaj:
-${message}
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
 
-— Kandexa web form`;
+      if (response.ok) {
+        status.style.display = "block";
+        status.style.color = "#16a34a";
+        status.textContent = "Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağız.";
 
-  const mailto = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailto;
-  return false;
+        form.reset();
+      } else {
+        status.style.display = "block";
+        status.style.color = "#dc2626";
+        status.textContent = "Bir hata oluştu. Lütfen tekrar deneyin.";
+      }
+    } catch (error) {
+      status.style.display = "block";
+      status.style.color = "#dc2626";
+      status.textContent = "Bağlantı hatası. Lütfen daha sonra tekrar deneyin.";
+    }
+  });
 }
+

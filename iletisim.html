@@ -36,6 +36,15 @@
       </button>
     </div>
   </div>
+
+  <div id="mobileNav" class="nav-mobile">
+    <a href="index.html" data-i18n="nav_home">Anasayfa</a>
+    <a href="hakkimizda.html" data-i18n="nav_about">Hakkımızda</a>
+    <a href="ekip.html" data-i18n="nav_team">Ekip</a>
+    <a href="projeler.html" data-i18n="nav_projects">Projeler</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="iletisim.html" data-i18n="nav_contact">İletişim</a>
+  </div>
 </div>
   <main class="container">
     <div class="page-title">
@@ -58,42 +67,56 @@
       <div class="card contact-card">
         <h3 style="margin:0 0 10px" data-i18n="form_h">Form</h3>
 
-        <form onsubmit="return sendMail();">
-          <div class="field">
-            <label for="to" data-i18n="to_label">Kime?</label>
-            <select id="to" name="to">
-              <option value="mckandemir20@gmail.com">Mehmet Celil</option>
-              <option value="kiymazilgin@gmail.com">Ilgın</option>
-            </select>
-          </div>
+<form id="contactForm" action="https://formspree.io/f/xgvgjpgz" method="POST">
+  <div class="field">
+    <label for="to" data-i18n="to_label">Kime?</label>
+    <select id="to" name="to">
+      <option value="Mehmet Celil Kandemir">Mehmet Celil</option>
+      <option value="Ilgın Kıymaz">Ilgın</option>
+    </select>
+  </div>
 
-          <div class="field">
-            <label for="name" data-i18n="name_label">Ad Soyad</label>
-            <input id="name" name="name" placeholder="Ad Soyad" />
-          </div>
+  <div class="field">
+    <label for="name" data-i18n="name_label">Ad Soyad</label>
+    <input id="name" name="name" placeholder="Ad Soyad" required />
+  </div>
 
-          <div class="field">
-            <label for="email" data-i18n="email_label">E-posta</label>
-            <input id="email" name="email" placeholder="ornek@mail.com" />
-          </div>
+  <div class="field">
+    <label for="email" data-i18n="email_label">E-posta</label>
+    <input id="email" name="email" type="email" placeholder="ornek@mail.com" required />
+  </div>
 
-          <div class="field">
-            <label for="company" data-i18n="company_label">Firma (opsiyonel)</label>
-            <input id="company" name="company" placeholder="Firma adı" />
-          </div>
+  <div class="field">
+    <label for="company" data-i18n="company_label">Firma (opsiyonel)</label>
+    <input id="company" name="company" placeholder="Firma adı" />
+  </div>
 
-          <div class="field">
-            <label for="subject" data-i18n="subject_label">Konu</label>
-            <input id="subject" name="subject" placeholder="Örn: otomasyon teklifi / panel" />
-          </div>
+  <div class="field">
+    <label for="subject" data-i18n="subject_label">Konu</label>
+    <input id="subject" name="subject" placeholder="Örn: otomasyon teklifi / panel" />
+  </div>
 
-          <div class="field">
-            <label for="message" data-i18n="message_label">Mesajınız</label>
-            <textarea id="message" name="message" placeholder="Kısa ve net yazın..."></textarea>
-          </div>
+  <div class="field">
+    <label for="message" data-i18n="message_label">Mesajınız</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Kısa ve net yazın..."
+      required
+    ></textarea>
+    <p id="formStatus" class="small" style="margin-top:10px; display:none;"></p>
+  </div>
 
-          <button class="btn primary" type="submit" style="width:100%" data-i18n="send_btn">Gönder</button>
-        </form>
+  <!-- Formspree ayarları -->
+  <input type="hidden" name="_subject" value="Kandexa | İletişim Formu">
+  <input type="hidden" name="_template" value="table">
+
+  <button class="btn primary" type="submit" style="width:100%" data-i18n="send_btn">
+    Gönder
+  </button>
+</form>
+
       </div>
     </section>
 
