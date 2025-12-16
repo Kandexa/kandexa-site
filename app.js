@@ -1,44 +1,50 @@
-// ===== Mobile Menu Toggle =====
+// Kandexa - active nav (desktop+mobile) + mobile menu
 (function () {
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileNav = document.getElementById("mobileNav");
+  function currentFile() {
+    let file = location.pathname.split("/").pop() || "index.html";
+    file = file.split("?")[0].split("#")[0].toLowerCase();
+    if (file === "" || file === "/") file = "index.html";
+    return file;
+  }
 
-  if (menuBtn && mobileNav) {
-    menuBtn.addEventListener("click", () => {
-      mobileNav.classList.toggle("open");
+  function normalizeHref(href) {
+    if (!href) return "";
+    href = href.trim().toLowerCase();
+    href = href.replace(/^\.\//, "");          // ./hakkimizda.html -> hakkimizda.html
+    href = href.split("?")[0].split("#")[0];  // query/hash temizle
+    if (href === "" || href === "/") href = "index.html";
+    return href;
+  }
+
+  function setActiveLinks(scopeSelector) {
+    const file = currentFile();
+    document.querySelectorAll(scopeSelector + " a").forEach((a) => {
+      const href = normalizeHref(a.getAttribute("href"));
+      if (href === file) {
+        a.classList.add("active");
+        a.setAttribute("aria-current", "page");
+      }
     });
   }
-})();
 
-// ===== Formspree: sayfada "Mesaj iletildi" göster, başka sayfaya gitme =====
-(function () {
-  const form = document.getElementById("contactForm");
-  if (!form) return;
+  document.addEventListener("DOMContentLoaded", function () {
+    // aktif menü
+    setActiveLinks(".nav");
+    setActiveLinks(".nav-mobile");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    // mobil menü aç/kapa
+    const btn = document.getElementById("menuBtn");
+    const mobile = document.getElementById("mobileNav");
 
-    const okBox = document.getElementById("formSuccess");
-    const errBox = document.getElementById("formError");
-    if (okBox) okBox.style.display = "none";
-    if (errBox) errBox.style.display = "none";
+    if (btn && mobile) {
+      btn.addEventListener("click", () => mobile.classList.toggle("open"));
 
-    try {
-      const data = new FormData(form);
-      const res = await fetch(form.action, {
-        method: "POST",
-        body: data,
-        headers: { "Accept": "application/json" }
+      // dışarı tıklayınca kapansın
+      document.addEventListener("click", (e) => {
+        if (!mobile.contains(e.target) && !btn.contains(e.target)) {
+          mobile.classList.remove("open");
+        }
       });
-
-      if (res.ok) {
-        form.reset();
-        if (okBox) okBox.style.display = "block";
-      } else {
-        if (errBox) errBox.style.display = "block";
-      }
-    } catch (err) {
-      if (errBox) errBox.style.display = "block";
     }
   });
 })();

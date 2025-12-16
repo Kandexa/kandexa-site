@@ -67,11 +67,17 @@ img{max-width:100%; height:auto}
   background:rgba(15,23,42,.04);
   border-color:rgba(15,23,42,.06);
 }
+/* Aktif sayfa (navbar üst menü) */
 .nav a.active{
-  color:var(--text);
-  background:rgba(15,23,42,.06);
-  border-color:rgba(15,23,42,.10);
+  color:#07101f;
+  background: linear-gradient(120deg, var(--brand1), var(--brand2));
+  border-color: transparent;
+  box-shadow: 0 10px 25px rgba(2,6,23,.10);
+  
 }
+
+.nav a{ transition: transform .12s ease, box-shadow .12s ease; }
+.nav a.active{ transform: translateY(-1px); }
 
 .actions-right{display:flex; align-items:center; gap:10px}
 
